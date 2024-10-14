@@ -1,2 +1,2 @@
 # ds-programs
-DSA programs for practice
+DSA programs for practice.
