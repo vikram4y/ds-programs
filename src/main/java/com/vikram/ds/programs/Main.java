@@ -4,14 +4,27 @@ package com.vikram.ds.programs;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        String str = "abc";
+        printAll(str);
+    }
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+    private static void printAll(String str) {
+        boolean[] flag = new boolean[str.length()];
+        permute(str,"", flag);
+    }
+
+    private static void permute(String str, String cur, boolean[] flag) {
+        if (cur.length() == str.length()) {
+            System.out.println(cur);
+            return;
+        }
+        for (int i=0;i<str.length();i++) {
+            if (flag[i])
+                continue;
+            flag[i] = true;
+            permute(str, cur+str.charAt(i), flag);
+            flag[i] = false;
         }
     }
+
 }
